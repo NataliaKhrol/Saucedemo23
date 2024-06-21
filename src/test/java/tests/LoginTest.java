@@ -12,4 +12,11 @@ public class LoginTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         assertEquals(driver.findElement(By.cssSelector("[class=product_label]")).getText(), "Products");
     }
+
+    @Test
+    public void emptyUserInputLogin() {
+        loginPage.open();
+        loginPage.login("", "secret_sauce");
+        assertEquals(driver.findElement(By.cssSelector("[class=product_label]")).getText(), "Products");
+    }
 }
